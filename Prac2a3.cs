@@ -35,3 +35,11 @@ public class Prac2a3
 	    Console.Write("Root are imeainary;\nNo Solution. \n\n");
 }
 }
+// output
+// Input the value of a : 4
+// Input the value of b : 4
+// Input the value of c : 1
+
+// Both roots are equal.
+// First  Root Root1= -0.5
+// Second Root Root2= -0.5
