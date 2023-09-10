@@ -32,3 +32,8 @@ public class Prac2a4
         }
     }
 }
+
+//output
+// Enter 1 for celcius to farenheit and 2 for farenheit to celcius : 1
+// Enter values for conversion : 37
+// 98 C
