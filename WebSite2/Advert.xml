@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>https://i.pinimg.com/originals/33/22/23/33222302e137bc0a21a4b195c5a53c09.jpg</ImageUrl>
+    <NavigateUrl>http://www.prosetech.com</NavigateUrl>
+    <AlternateText>ProseTech Site</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>Computer</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>https://mir-s3-cdn-cf.behance.net/project_modules/disp/fc643c11009845.562d951cc15f8.png</ImageUrl>
+    <NavigateUrl>http://www.prosetech.com</NavigateUrl>
+    <AlternateText>ProseTech Site</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>Latest Baba</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>https://1.bp.blogspot.com/-ah_WcWMr-Zg/WV3QjyoauKI/AAAAAAAAADo/o9ReXM07Ib8dCqHLo2WV9CmzeQB5gT6HACLcBGAs/s1600/mcdonalds%2B4.jpg</ImageUrl>
+    <NavigateUrl>http://www.prosetech.com</NavigateUrl>
+    <AlternateText>ProseTech Site</AlternateText>
+    <Impressions>30</Impressions>
+    <Keyword>McDonald</Keyword>
+  </Ad>
+</Advertisements>
