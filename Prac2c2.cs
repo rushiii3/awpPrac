@@ -7,8 +7,7 @@ public class Prac2c2
         try
         {
             Console.Write("Enter your age: ");
-            string userInput = Console.ReadLine();
-            int userAge = int.Parse(userInput);
+            int userAge = Convert.ToInt32(Console.ReadLine());
             if (userAge <= 0 || userAge > 100)
             {
                 throw new ArgumentOutOfRangeException("Age", "Age must be between 0 and 120.");
