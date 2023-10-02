@@ -7,26 +7,29 @@ public class Prac2c2
         try
         {
             Console.Write("Enter your age: ");
-            int userAge = Convert.ToInt32(Console.ReadLine());
-            if (userAge <= 0 || userAge > 100)
+            int age = Convert.ToInt32(Console.ReadLine());
+            if (age <= 0 || age > 100)
             {
                 throw new ArgumentOutOfRangeException("Age", "Age must be between 0 and 120.");
             }
-            Console.WriteLine($"Your age is: {userAge}");
+            Console.WriteLine("Your age is: {0}",age);
         }
         catch (FormatException)
         {
             Console.WriteLine("Invalid input. Please enter a valid number for age.");
         }
-        catch (ArgumentOutOfRangeException ex)
+        catch (ArgumentOutOfRangeException err)
         {
-            Console.WriteLine($"Invalid age: {ex.Message}");
+            Console.WriteLine("Invalid age: {0}",err.Message);
         }
-        catch (Exception ex)
+        catch (Exception err)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            Console.WriteLine("An error occurred: {0}",err.Message);
         }
-        Console.WriteLine("Program runned smoothly!");
+        finally{
+            Console.WriteLine("Program runned smoothly!");
+        }
+        
     }
 }
 
