@@ -1,0 +1,42 @@
+write a document
+
+
+
+
+string file = "C:/Dump/write.xml";
+        XDocument doc = new XDocument(
+            new XDeclaration("1.0", null, "yes"),
+            new XElement("Products",
+                new XElement("Product",
+                    new XElement("title", new XAttribute("id", "bottle"), "Bottle"),
+                    new XElement("Price", "49.99")
+                    ),
+                    new XElement("Product",
+                    new XElement("title", new XAttribute("id", "box"), "box"),
+                    new XElement("Price", "100")
+                    )
+                )
+                );
+                doc.Save(file);
+
+reading a document
+
+
+try
+        {
+            string file = "C:/Dump/write.xml";
+            XDocument doc = XDocument.Load(file);
+
+            foreach (XElement productElement in doc.Root.Elements("Product"))
+            {
+                XElement titleElement = productElement.Element("title");
+                XElement priceElement = productElement.Element("Price");
+                XAttribute idAttribute = titleElement.Attribute("id");
+                Label3.Text += " Title is " + titleElement.Value + ", Price is " + priceElement.Value + ", ID is " + idAttribute.Value + "<br />";
+                
+            }
+        }
+        catch (Exception err)
+        {
+            Label3.Text = "An error occurred: " + err.Message;
+        }
