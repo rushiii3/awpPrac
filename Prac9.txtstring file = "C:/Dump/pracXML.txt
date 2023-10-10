@@ -1,9 +1,61 @@
-write a document
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml;
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
 
+    }
+//database
+    protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection("Data Source='.';Integrated Security=True;Pooling=False;Initial Catalog='temp'");
+        try
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM student WHERE control_id = '"+ ListBox1.SelectedValue +"' ",con);
+            SqlDataReader reader;
+            con.Open();
+            reader = cmd.ExecuteReader();
+            reader.Read();
+            Label1.Text = reader["name"].ToString();
+            Label2.Text = reader["age"].ToString();
+            con.Close();
+        }
+        catch (Exception err)
+        {
 
+        }
+    }
+//insert
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection("Data Source='.';Integrated Security=True;Pooling=False;Initial Catalog='temp'");
+        try
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO student(control_id,name,age) VALUES('  "+ TextBox1.Text +"  '  , '    "+TextBox2.Text+"   '   ,  '     "+TextBox3.Text+"       ') ", con);
+            con.Open();
+            var add = cmd.ExecuteNonQuery();
+            Response.Redirect("#");
+            con.Close();
+        }
+        catch (Exception err)
+        {
 
-
-string file = "C:/Dump/write.xml";
+        }
+    }
+//write xml
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        string file = "C:/Dump/write.xml";
         XDocument doc = new XDocument(
             new XDeclaration("1.0", null, "yes"),
             new XElement("Products",
@@ -18,11 +70,11 @@ string file = "C:/Dump/write.xml";
                 )
                 );
                 doc.Save(file);
-
-reading a document
-
-
-try
+     }
+//read xml
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        try
         {
             string file = "C:/Dump/write.xml";
             XDocument doc = XDocument.Load(file);
@@ -40,3 +92,93 @@ try
         {
             Label3.Text = "An error occurred: " + err.Message;
         }
+
+        
+    }
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Label4.Text = DropDownList1.SelectedItem.Value;
+    }
+//treenode
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        TreeNode node = new TreeNode();
+        node.Text = TextBox8.Text;
+        node.Value = TextBox8.Text;
+        TreeView1.Nodes.Add(node);
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        
+        TreeNode node = TreeView1.SelectedNode;
+        node.Collapse();
+        //TreeView1.Nodes.Remove(node);
+    }
+}
+
+
+//calendar 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Globalization;
+
+
+public partial class Default2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void Calendar1_render(object sender, DayRenderEventArgs e)
+    {
+        // a) Display messages in a calendar control
+        if (e.Day.Date.Day == 10 && e.Day.Date.Month==10)
+        {
+            Label lbl = new Label();
+            lbl.Text = "<br>Exam End<br>";
+            e.Cell.Controls.Add(lbl);
+            e.Cell.BackColor = System.Drawing.Color.Red;
+            e.Cell.ForeColor = System.Drawing.Color.Beige;
+        }
+        if (e.Day.IsSelected)
+        {
+            e.Cell.BackColor = System.Drawing.Color.Yellow;
+        }
+        //vacations
+        DateTime new_days = e.Day.Date.AddDays(7);
+        DateTime current_date = new DateTime(2023,10,20);
+        var total = new_days.Subtract(current_date).TotalDays;
+
+        for (var i = 1; i <= total; i++)
+        {
+            if (e.Day.Date.Day == (20 + i))
+            {
+                Label lbl = new Label();
+                lbl.Text = "<br>Exam<br>";
+                e.Cell.Controls.Add(lbl);
+                e.Cell.BackColor = System.Drawing.Color.Red;
+                e.Cell.ForeColor = System.Drawing.Color.Beige;
+            }
+
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //Difference between two calendar dates
+        DateTime date = Calendar1.SelectedDate.Date;
+        DateTime current_date =  DateTime.Now.Date;
+        var total = date.Subtract(current_date).TotalDays;
+        Label1.Text = "Difference from " + current_date.ToString() + " to " + date.ToString() + " is " + total.ToString() + " ";
+    }
+}
+
+
+
