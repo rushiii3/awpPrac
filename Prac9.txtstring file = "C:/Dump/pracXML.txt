@@ -180,5 +180,29 @@ public partial class Default2 : System.Web.UI.Page
     }
 }
 
-
+//ad xml file
+<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<Ad>
+		<ImageUrl>https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f44fce73477005.5c0a7c654d62c.png</ImageUrl>
+		<NavigateUrl>https://www.mcdelivery.co.in/</NavigateUrl>
+		<AlternateText>McDonald</AlternateText>
+		<Impression>10</Impression>
+		<Keyword>food</Keyword>
+	</Ad>
+	<Ad>
+		<ImageUrl>https://i.pinimg.com/736x/29/c1/b5/29c1b57c9f5e53bcb70020ff0c6e04d0.jpg</ImageUrl>
+		<NavigateUrl>https://www.mcdelivery.co.in/</NavigateUrl>
+		<AlternateText>McDonald</AlternateText>
+		<Impression>20</Impression>
+		<Keyword>food</Keyword>
+	</Ad>
+	<Ad>
+		<ImageUrl>https://static-cse.canva.com/blob/568822/35.Realhiphop.png</ImageUrl>
+		<NavigateUrl>https://www.mcdelivery.co.in/</NavigateUrl>
+		<AlternateText>McDonald</AlternateText>
+		<Impression>30</Impression>
+		<Keyword>food</Keyword>
+	</Ad>
+</Advertisements>
 
